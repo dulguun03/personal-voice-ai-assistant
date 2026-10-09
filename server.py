@@ -1,8 +1,4 @@
-"""Local-only HTTP server. Run: python server.py, then http://127.0.0.1:8766.
 
-Only public web/ assets can be served. Database, .env, models, and Python
-sources are never accessible through static URLs.
-"""
 from __future__ import annotations
 
 import argparse
