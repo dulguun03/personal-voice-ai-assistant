@@ -1,8 +1,4 @@
-"""Optional real local speech recognition with faster-whisper on CPU.
 
-Models are loaded lazily. By default only existing cached models are used;
-there is no automatic download or external audio upload.
-"""
 from __future__ import annotations
 
 import importlib.util
