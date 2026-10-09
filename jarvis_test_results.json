@@ -1,0 +1,268 @@
+{
+  "generated_at": "2026-10-08T17:53:16+08:00",
+  "suite": "Jarvis bilingual spoken commands and HTTP; AI/speech transport mocks",
+  "command": "python tests/test_backend.py",
+  "python_version": "3.12.10",
+  "status": "passed",
+  "passed": 49,
+  "total": 49,
+  "categories": {
+    "mocked_ai": 8,
+    "mocked_speech": 4,
+    "real": 30,
+    "real_http": 7
+  },
+  "checks": [
+    {
+      "name": "Unicode, quotation marks and SQL payload are stored literally",
+      "category": "real",
+      "passed": true
+    },
+    {
+      "name": "SQLite persists across a new store instance",
+      "category": "real",
+      "passed": true
+    },
+    {
+      "name": "Mongolian task creation",
+      "category": "real",
+      "passed": true
+    },
+    {
+      "name": "List notes",
+      "category": "real",
+      "passed": true
+    },
+    {
+      "name": "List tasks",
+      "category": "real",
+      "passed": true
+    },
+    {
+      "name": "Plural task list alias",
+      "category": "real",
+      "passed": true
+    },
+    {
+      "name": "Ulaanbaatar UTC+08:00 time",
+      "category": "real",
+      "passed": true
+    },
+    {
+      "name": "Missing note content asks for clarification",
+      "category": "real",
+      "passed": true
+    },
+    {
+      "name": "Missing work content asks for clarification",
+      "category": "real",
+      "passed": true
+    },
+    {
+      "name": "Empty input rejected",
+      "category": "real",
+      "passed": true
+    },
+    {
+      "name": "Nonstring input rejected",
+      "category": "real",
+      "passed": true
+    },
+    {
+      "name": "Oversized input rejected",
+      "category": "real",
+      "passed": true
+    },
+    {
+      "name": "Unknown tool blocked",
+      "category": "real",
+      "passed": true
+    },
+    {
+      "name": "Spoken English note preserves capitalization, quotation marks and punctuation",
+      "category": "real",
+      "passed": true
+    },
+    {
+      "name": "English command gets English acknowledgement",
+      "category": "real",
+      "passed": true
+    },
+    {
+      "name": "Remember command saves a note without scheduling a reminder",
+      "category": "real",
+      "passed": true
+    },
+    {
+      "name": "Spoken English task creation",
+      "category": "real",
+      "passed": true
+    },
+    {
+      "name": "English add-to-my-tasks command",
+      "category": "real",
+      "passed": true
+    },
+    {
+      "name": "Spoken English task question",
+      "category": "real",
+      "passed": true
+    },
+    {
+      "name": "Spoken English read-notes command",
+      "category": "real",
+      "passed": true
+    },
+    {
+      "name": "Invocation name does not override the actual English command language",
+      "category": "real",
+      "passed": true
+    },
+    {
+      "name": "Mongolian spoken note without colon",
+      "category": "real",
+      "passed": true
+    },
+    {
+      "name": "Mongolian save-note suffix",
+      "category": "real",
+      "passed": true
+    },
+    {
+      "name": "Mongolian content-first save-note command",
+      "category": "real",
+      "passed": true
+    },
+    {
+      "name": "Mongolian content-before-add task command",
+      "category": "real",
+      "passed": true
+    },
+    {
+      "name": "Mongolian spoken read-notes command",
+      "category": "real",
+      "passed": true
+    },
+    {
+      "name": "Reminder phrasing saves only a task and explains the limit",
+      "category": "real",
+      "passed": true
+    },
+    {
+      "name": "A question about task creation performs no write",
+      "category": "real",
+      "passed": true
+    },
+    {
+      "name": "Incomplete spoken note asks for content",
+      "category": "real",
+      "passed": true
+    },
+    {
+      "name": "Unsupported spoken command produces help without effects",
+      "category": "real",
+      "passed": true
+    },
+    {
+      "name": "Auto ASR passes None to language detector",
+      "category": "mocked_speech",
+      "passed": true
+    },
+    {
+      "name": "Auto ASR reports the detected language",
+      "category": "mocked_speech",
+      "passed": true
+    },
+    {
+      "name": "Temporary audio is deleted after transcription",
+      "category": "mocked_speech",
+      "passed": true
+    },
+    {
+      "name": "Explicit ASR language selection still works",
+      "category": "mocked_speech",
+      "passed": true
+    },
+    {
+      "name": "OpenAI Responses tool loop",
+      "category": "mocked_ai",
+      "passed": true
+    },
+    {
+      "name": "OpenAI tool result returned to model",
+      "category": "mocked_ai",
+      "passed": true
+    },
+    {
+      "name": "OpenAI serial tools and response storage setting",
+      "category": "mocked_ai",
+      "passed": true
+    },
+    {
+      "name": "LLM unsolicited write blocked",
+      "category": "mocked_ai",
+      "passed": true
+    },
+    {
+      "name": "Provider failure never replays a local write",
+      "category": "mocked_ai",
+      "passed": true
+    },
+    {
+      "name": "Duplicate write blocked and success preserved after followup failure",
+      "category": "mocked_ai",
+      "passed": true
+    },
+    {
+      "name": "Ollama tool result loop",
+      "category": "mocked_ai",
+      "passed": true
+    },
+    {
+      "name": "Remote write acknowledgement stays English and stores original user content",
+      "category": "mocked_ai",
+      "passed": true
+    },
+    {
+      "name": "HTTP status route",
+      "category": "real_http",
+      "passed": true
+    },
+    {
+      "name": "HTTP chat route",
+      "category": "real_http",
+      "passed": true
+    },
+    {
+      "name": "HTTP malformed JSON schema rejected",
+      "category": "real_http",
+      "passed": true
+    },
+    {
+      "name": "Cross-site mutation blocked",
+      "category": "real_http",
+      "passed": true
+    },
+    {
+      "name": "Static path traversal blocked",
+      "category": "real_http",
+      "passed": true
+    },
+    {
+      "name": "Private environment file inaccessible",
+      "category": "real_http",
+      "passed": true
+    },
+    {
+      "name": "No invented pending confirmation",
+      "category": "real_http",
+      "passed": true
+    }
+  ],
+  "failure": null,
+  "limitations": [
+    "OpenAI and Ollama requests use mock transports; no real remote provider or paid API was called.",
+    "Speech recognition is outside this suite; actual ASR evidence is recorded separately.",
+    "The suite creates a temporary database and never modifies app/data/assistant.db."
+  ]
+}

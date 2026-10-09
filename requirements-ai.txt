@@ -1,0 +1,3 @@
+# The optional OpenAI Responses and Ollama REST integrations use Python urllib.
+# No Python package is required for AI providers.
+# Ollama itself and its model are separate optional installations.
