@@ -1,10 +1,4 @@
-"""Reproducible standard-library backend checks.
 
-Run from app/: python tests/test_backend.py
-The suite creates and removes its own temporary SQLite database, never changes
-the user's assistant.db, never downloads a model, and never calls a remote API.
-Real network checks use an ephemeral localhost port. AI responses are mocked.
-"""
 from __future__ import annotations
 
 import json
