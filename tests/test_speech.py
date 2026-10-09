@@ -1,4 +1,4 @@
-"""Real local ASR test using a synthesized English fixture, not a MN benchmark."""
+
 import json
 import sys
 import time
