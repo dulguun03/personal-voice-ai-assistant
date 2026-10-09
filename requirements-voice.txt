@@ -1,5 +1,4 @@
-# Optional local speech recognition. Recommended Python 3.11 or 3.12, CPU.
-# Package version observed at project build; model weights are separate.
+
 faster-whisper==1.2.1
-# PyAV 19 removed metadata_errors used by faster-whisper 1.2.1.
+
 av==15.1.0
