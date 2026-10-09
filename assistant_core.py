@@ -317,8 +317,6 @@ class Assistant:
             if any(item[0] in {"add_note", "add_task"} and "error" not in item[1] for item in executed):
                 return {"error": "Нэг командын нэг хадгалах үйлдэл аль хэдийн хийгдсэн. Давтан хадгалсангүй."}
             if isinstance(arguments, dict) and set(arguments) == set(parsed_write[1]):
-                # The model chooses the tool; the explicit user's words supply
-                # the stored content, preventing invented or rewritten notes.
                 arguments = parsed_write[1]
         try:
             result = self.execute_tool(name, arguments)
