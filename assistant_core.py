@@ -1,8 +1,3 @@
-"""Local tools, SQLite storage, rules router, and optional LLM tool loops.
-
-Default operation needs only Python's standard library. No secret is sent to
-the browser. Provider integration tests can inject a fake JSON transport.
-"""
 from __future__ import annotations
 
 import json
@@ -23,8 +18,7 @@ MAX_TASK = 300
 
 
 def strip_invocation(text: str) -> str:
-    """Remove a spoken name/courtesy prefix without lowercasing stored content."""
-    text = re.sub(r"^\s*(?:(?:hey|hello|ok(?:ay)?)\s+)?(?:jarvis|жарвис)(?:\s+аа)?\b[\s,:!.-]*",
+    text = re.sub(r"^\s*(?:(?:hey|hello|ok(?:ay)?)\s+)?(?:jarvis|жарвис)(?:\s)?\b[\s,:!.-]*",
                   "", text, flags=re.IGNORECASE)
     text = re.sub(r"^\s*(?:please\s+|(?:can|could|would)\s+you\s+(?:please\s+)?)",
                   "", text, flags=re.IGNORECASE)
@@ -32,16 +26,10 @@ def strip_invocation(text: str) -> str:
 
 
 def command_language(text: str) -> str:
-    # A Cyrillic command is answered in Mongolian; English is the other supported language.
     return "mn" if re.search(r"[А-Яа-яЁёӨөҮү]", strip_invocation(text)) else "en"
 
 
 def parse_write_command(text):
-    """Recognize explicit, supported write commands; questions authorize no write.
-
-    Capturing the original text preserves capitalization, quotes, and punctuation
-    in the user's note/task instead of inventing content from model output.
-    """
     text = strip_invocation(text)
     patterns = [
         ("add_note", "content", r"^(?:тэмдэглэл(?:\s+(?:нэм(?:эх)?|хадгал(?:ах)?))?\s*[:：]\s*|(?:add\s+)?note\s*[:：]\s*)(.*)$"),
@@ -87,8 +75,6 @@ def checked_text(value, limit=MAX_TEXT) -> str:
 
 
 class AssistantStore:
-    """One connection per operation is safe with ThreadingHTTPServer."""
-
     def __init__(self, db_path):
         self.db_path = Path(db_path)
         self.db_path.parent.mkdir(parents=True, exist_ok=True)
@@ -200,7 +186,6 @@ def request_json(url, payload, headers=None, timeout=60):
             raise ProviderError("AI үйлчилгээ буруу бүтэцтэй хариу өглөө.")
         return result
     except HTTPError as error:
-        # Never echo vendor response bodies, credentials, or URLs into the UI.
         raise ProviderError(f"AI үйлчилгээ HTTP {error.code} алдаа өглөө. Тохиргоо, эрх, үлдэгдлээ шалгана уу.") from None
     except (URLError, TimeoutError, OSError):
         raise ProviderError("AI үйлчилгээнд холбогдсонгүй. Сүлжээ болон сонгосон үйлчилгээг шалгана уу.") from None
